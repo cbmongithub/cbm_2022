@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+/public/assets
+.env
+todo.txt
 
 # testing
 /coverage
@@ -19,5 +22,3 @@
 .env.production.local
 
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*

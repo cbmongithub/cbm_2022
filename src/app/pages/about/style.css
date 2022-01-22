@@ -1,0 +1,15 @@
+.wrapper {
+  max-width: 700px;
+}
+
+.skills {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.outline {
+  padding: 1rem;
+  margin: 0.75rem;
+  border: 1px solid #222;
+}

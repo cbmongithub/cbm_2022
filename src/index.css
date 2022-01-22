@@ -1,13 +1,110 @@
+:root {
+  --bg-color: #111;
+  --primary-color: #111;
+  --gray-color: #bbb;
+  --gray-muted: #222;
+  --gray-scale: 1;
+  --secondary-color: #fff;
+  --text-color: #f9f9f9;
+  --text-color-2: #fff;
+  --overlay-color: rgb(12 12 12 / 63%);
+}
+
+[data-theme='light'] {
+  --bg-color: #f9f9f9;
+  --primary-color: #f9f9f9;
+  --gray-color: #555;
+  --gray-muted: #eee;
+  --gray-scale: 0;
+  --secondary-color: #111;
+  --text-color: #111;
+  --text-color-2: #111;
+  --overlay-color: rgb(255 255 255 / 70%);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body::-webkit-scrollbar {
+  width: 0.5em;
+  color: var(--text-color);
+}
+
+body::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+  border-radius: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Marcellus;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--gray-color);
+}
+
+svg:hover {
+  cursor: pointer;
+  stroke: var(--gray-color);
+  fill: var(--gray-color);
+}
+
+nav {
+  height: 55px;
+  background-color: var(--bg-color);
+}
+
+section {
+  padding: 1.25em;
+}
+
+.home,
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+footer {
+  background-color: var(--gray-muted);
+  color: var(--text-color);
+  height: 55px;
+}
+
+.card {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  outline: 1px solid var(--gray-color);
+}
+
+.overflow {
+  overflow-y: hidden;
 }

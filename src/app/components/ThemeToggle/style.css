@@ -1,0 +1,12 @@
+.theme_toggler {
+  background: var(--primary-color);
+  z-index: 999999999;
+  background: var(--primary-color);
+  display: flex;
+  align-items: center;
+}
+
+.theme_toggler svg {
+  width: 2em;
+  height: 2em;
+}
