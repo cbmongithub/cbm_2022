@@ -1,0 +1,5 @@
+.card__style {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  outline: 1px solid var(--gray-color);
+}

@@ -4,6 +4,7 @@ import { FaGithub, FaTiktok, FaCodepen } from 'react-icons/fa'
 import { LogoText, Socials } from '../../data'
 import ThemeToggle from '../ThemeToggle'
 import { Link } from 'react-router-dom'
+
 import './style.css'
 
 const NavBar = () => {

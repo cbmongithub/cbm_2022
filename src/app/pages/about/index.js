@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { DataAbout, Skills, Services } from '../../data'
+
 import './style.css'
 
 const About = () => (

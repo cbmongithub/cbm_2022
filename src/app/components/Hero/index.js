@@ -1,67 +1,63 @@
-import { useState } from 'react'
-import { extend, Canvas } from '@react-three/fiber'
-//import { Environment, OrbitControls } from '@react-three/drei'
-import { Text } from 'troika-three-text'
-//import Portrait from '../components/Portrait'
+import { Suspense, useRef } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Environment, OrbitControls } from '@react-three/drei'
+import HeroText from './HeroText'
+import Portrait from './Portrait'
+import Loader from '../Loader'
 
-extend({ Text })
-
-const text =
-  "Hey, i'm Christian. I develop applications for the web. Feel free to browse my portfolio or contact me anytime."
-
-const Hero = () => {
-  const [rotation, setRotation] = useState([0, 0, 0, 0])
-  const opts = {
-    fontSize: 12,
-    color: '#99ccff',
-    maxWidth: 300,
-    lineHeight: 1,
-    letterSpacing: 0,
-    textAlign: 'justify',
-    materialType: 'MeshPhongMaterial',
-  }
-  const onMouseMove = (e) => {
-    setRotation([
-      ((e.clientY / e.target.offsetHeight - 0.5) * -Math.PI) / 8,
-      ((e.clientX / e.target.offsetWidth - 0.5) * -Math.PI) / 8,
-      0,
-    ])
-    console.log('Mouse moved.')
-  }
-
+const DisplayText = () => {
+  const ref = useRef()
+  useFrame(
+    ({ clock }) =>
+      (ref.current.rotation.x =
+        ref.current.rotation.y =
+        ref.current.rotation.z =
+          Math.sin(clock.getElapsedTime()) * 0.1)
+  )
   return (
-    <>
-      <Canvas
-        style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          top: 0,
-          left: 0,
-          marginTop: '55px',
-        }}
-        pixelRatio={window.devicePixelRatio}
-        onMouseMove={onMouseMove}
-      >
-        <text
-          position-z={-180}
-          rotation={rotation}
-          {...opts}
-          text={text}
-          anchorX='center'
-          anchorY='middle'
-        >
-          {opts.materialType === 'MeshPhongMaterial' ? (
-            <meshPhongMaterial attach='material' color={opts.color} />
-          ) : null}
-        </text>
-
-        <pointLight position={[-100, 0, -160]} />
-        <pointLight position={[0, 0, -170]} />
-        <pointLight position={[100, 0, -160]} />
-      </Canvas>
-    </>
+    <group ref={ref}>
+      <HeroText
+        position={[0, 0.1, -1]}
+        vAlign='top'
+        children={`I'm Christian`}
+      />
+      <HeroText
+        position={[0, 0, -1]}
+        vAlign='bottom'
+        children='I love to code.'
+      />
+    </group>
   )
 }
+
+const Hero = () => (
+  <Suspense fallback={<Loader />}>
+    <Canvas
+      style={{
+        height: '100vh',
+        filter: 'grayscale(var(--gray-scale))',
+      }}
+      camera={{
+        fov: 2,
+        position: [0, 0, 18],
+      }}
+      pixelRatio={window.devicePixelRatio}
+    >
+      <Portrait />
+      <DisplayText />
+      <OrbitControls
+        autoRotate={true}
+        autoRotateSpeed={0.1}
+        enableZoom={false}
+        enablePan={false}
+      />
+      <Environment preset='warehouse' />
+
+      <pointLight position={[180, 0, -160]} />
+      <pointLight position={[0, 0, -170]} />
+      <pointLight position={[-180, 0, -160]} />
+    </Canvas>
+  </Suspense>
+)
 
 export default Hero

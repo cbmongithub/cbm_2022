@@ -5,17 +5,7 @@ const Meta = {
     'I’m Christian. I am a web developer currently attending SLCC for my AAS in Computer Science. Browse my portfolio or contact me anytime.',
 }
 
-const IntroData = {
-  title: 'I’m Christian',
-  animated: {
-    first: 'I love building apps.',
-    second: 'I love learning code.',
-    third: 'I love helping others.',
-  },
-  description:
-    "Welcome to my portfolio site! Feel free to browse my work, and don't hesitate to get in touch.",
-  bg_img_url: '/assets/me.jpg',
-}
+const IntroData = `Hey, i'm Christian. I develop applications for the web. I love building new apps. I am passionate about learning code. I enjoy helping others. Feel free to browse my portfolio or contact me anytime. If you are wondering how i created this website, i used React, React three fiber, and Boostrap. View my github to see more of my work`
 
 const DataAbout = {
   title: 'About Me',

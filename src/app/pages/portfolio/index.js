@@ -3,6 +3,8 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
 import { DataPortfolio } from '../../data'
 
+import './style.css'
+
 const Portfolio = () => (
   <section className='portfolio'>
     <Container>
@@ -20,7 +22,7 @@ const Portfolio = () => (
         {DataPortfolio.map((data, i) => {
           return (
             <Col key={i}>
-              <Card className='mb-5'>
+              <Card className='mb-5 card__style'>
                 <Card.Img variant='top' src={data.img} />
                 <Card.Body>
                   <Card.Title>{data.title}</Card.Title>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import * as emailjs from 'emailjs-com'
 import { ContactConfig } from '../../data'
 import { Container, Row, Col, Alert } from 'react-bootstrap'
+
 import './style.css'
 
 const Contact = () => {
