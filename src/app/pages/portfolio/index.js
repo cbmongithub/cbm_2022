@@ -1,7 +1,8 @@
-import { FaGithub, FaEye } from 'react-icons/fa'
+import { FaGithub, FaEye, FaNpm, FaCodepen } from 'react-icons/fa'
 import { Container, Row, Col } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
 import { DataPortfolio } from '../../data'
+import ModalTrigger from '../../components/ModalTrigger'
 
 import './style.css'
 
@@ -9,7 +10,7 @@ const Portfolio = () => (
   <section className='portfolio'>
     <Container>
       <Row className='my-5'>
-        <Col>
+        <Col lg='8'>
           <h1 className='display-4 mb-4'> Portfolio </h1>
           <hr className='t_border mb-4 text-left' />
           <p>
@@ -26,21 +27,54 @@ const Portfolio = () => (
                 <Card.Img variant='top' src={data.img} />
                 <Card.Body>
                   <Card.Title>{data.title}</Card.Title>
-                  <Card.Text>{data.description}</Card.Text>
+                  <Card.Text>{data.short_description}</Card.Text>
                   <Card.Link
-                    href={data.code_link}
+                    href={data.github_link}
                     target='_blank'
                     rel='noopener noreferrer'
                   >
                     <FaGithub />
                   </Card.Link>
-                  <Card.Link
-                    href={data.live_link}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                  >
-                    <FaEye />
-                  </Card.Link>
+                  {data.live_link ? (
+                    <Card.Link
+                      href={data.live_link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <FaEye />
+                    </Card.Link>
+                  ) : (
+                    ''
+                  )}
+                  {data.codepen_link ? (
+                    <Card.Link
+                      href={data.codepen_link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <FaCodepen />
+                    </Card.Link>
+                  ) : (
+                    ''
+                  )}
+                  {data.npm_link ? (
+                    <Card.Link
+                      href={data.npm_link}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <FaNpm />
+                    </Card.Link>
+                  ) : (
+                    ''
+                  )}
+                  <ModalTrigger
+                    title={data.title}
+                    description={data.long_description}
+                    features={data.features}
+                    date={data.date}
+                    tech={data.tech}
+                  />
                 </Card.Body>
               </Card>
             </Col>

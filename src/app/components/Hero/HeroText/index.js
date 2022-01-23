@@ -3,7 +3,7 @@ import React, { useMemo, useRef, useLayoutEffect } from 'react'
 import { extend, useLoader } from '@react-three/fiber'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
-const boldUrl = '/assets/blob.json'
+const boldUrl = '/assets/fonts/blob.json'
 
 extend({ TextGeometry })
 
@@ -12,16 +12,16 @@ const HeroText = ({
   vAlign = 'center',
   hAlign = 'center',
   size = 1.5,
-  color = '#000000',
+  color = '#444',
   ...props
 }) => {
   const font = useLoader(FontLoader, boldUrl)
   const config = useMemo(
     () => ({
       font,
-      size: 1,
+      size: 1.5,
       height: 0,
-      color: '#000',
+      color: '#444',
     }),
     [font]
   )
@@ -39,7 +39,7 @@ const HeroText = ({
     <group {...props} scale={[0.05 * size, 0.05 * size, 0.05]}>
       <mesh ref={mesh}>
         <textGeometry args={[children, config]} />
-        <meshNormalMaterial />
+        <meshBasicMaterial color={config.color} />
       </mesh>
     </group>
   )

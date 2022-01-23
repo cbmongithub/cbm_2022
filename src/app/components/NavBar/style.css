@@ -1,10 +1,20 @@
-.logo__text {
-  padding-top: 0.3125rem;
-  padding-bottom: 0.3125rem;
-  font-size: 1.25rem;
-  text-decoration: none;
-  white-space: nowrap;
-  z-index: 999999;
+.fixed-top {
+  height: 55px;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1054;
+}
+
+.logo__a {
+  width: 4%;
+  z-index: 1054;
+}
+
+.cbm__logo {
+  fill: var(--text-color);
 }
 
 .menu__button:focus,
@@ -158,11 +168,17 @@
   font-size: 0.85rem;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .main__menu .menu_item > a {
     font-size: 4rem;
   }
   .menu__footer svg {
     font-size: 1.25rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .fixed-top {
+    background-color: var(--bg-color);
   }
 }

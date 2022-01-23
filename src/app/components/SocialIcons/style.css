@@ -5,7 +5,7 @@
   height: 200px;
   position: absolute;
   margin-top: -100px;
-  z-index: 9999;
+  z-index: 1054;
 }
 
 .stick_follow_icon ul {
@@ -53,7 +53,7 @@
   background-color: var(--text-color);
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 819px) {
   .stick_follow_icon {
     display: none;
   }

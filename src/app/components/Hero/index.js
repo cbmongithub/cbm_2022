@@ -4,27 +4,41 @@ import { Environment, OrbitControls } from '@react-three/drei'
 import HeroText from './HeroText'
 import Portrait from './Portrait'
 import Loader from '../Loader'
+import { HeroData } from '../../data'
 
-const DisplayText = () => {
+const TitleText = () => {
   const ref = useRef()
-  useFrame(
-    ({ clock }) =>
-      (ref.current.rotation.x =
-        ref.current.rotation.y =
-        ref.current.rotation.z =
-          Math.sin(clock.getElapsedTime()) * 0.1)
-  )
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime()
+    ref.current.rotation.z = Math.cos(t / 2) / 20
+    ref.current.rotation.x = Math.sin(t / 2) / 20
+    ref.current.rotation.y = Math.cos(t / 2) / 20
+  })
   return (
     <group ref={ref}>
       <HeroText
-        position={[0, 0.1, -1]}
+        position={[0, 0.2, -2]}
         vAlign='top'
-        children={`I'm Christian`}
+        children={HeroData.title}
       />
+    </group>
+  )
+}
+
+const ParagraphText = () => {
+  const secondRef = useRef()
+  useFrame((state) => {
+    const s = state.clock.getElapsedTime()
+    secondRef.current.rotation.z = Math.sin(s / 2) / 16
+    secondRef.current.rotation.x = Math.cos(s / 2) / 16
+    secondRef.current.rotation.y = Math.sin(s / 2) / 16
+  })
+  return (
+    <group ref={secondRef}>
       <HeroText
-        position={[0, 0, -1]}
+        position={[0, -0.2, -2]}
         vAlign='bottom'
-        children='I love to code.'
+        children={HeroData.paragraph}
       />
     </group>
   )
@@ -39,16 +53,19 @@ const Hero = () => (
       }}
       camera={{
         fov: 2,
-        position: [0, 0, 18],
+        position: [0, 0, 25],
       }}
       pixelRatio={window.devicePixelRatio}
     >
       <Portrait />
-      <DisplayText />
+      <TitleText />
+      <ParagraphText />
       <OrbitControls
-        autoRotate={true}
+        autoRotate={false}
         autoRotateSpeed={0.1}
-        enableZoom={false}
+        enableZoom={true}
+        minDistance={15}
+        maxDistance={45}
         enablePan={false}
       />
       <Environment preset='warehouse' />

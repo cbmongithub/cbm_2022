@@ -8,7 +8,7 @@ const About = () => (
   <section className='about'>
     <Container>
       <Row className='my-5'>
-        <Col>
+        <Col lg='8'>
           <h1 className='display-4 mb-4'> About </h1>
           <hr className='t_border mb-4 text-left' />
           <p>{DataAbout.aboutme}</p>

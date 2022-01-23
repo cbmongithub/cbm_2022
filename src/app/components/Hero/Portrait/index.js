@@ -7,7 +7,7 @@ import { useGLTF } from '@react-three/drei'
 
 const Portrait = (props) => {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/assets/myface.glb')
+  const { nodes, materials } = useGLTF('/assets/img/myface.glb')
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[Math.PI / 2, 0, 0.06]} />
@@ -59,6 +59,6 @@ const Portrait = (props) => {
   )
 }
 
-useGLTF.preload('/assets/myface.glb')
+useGLTF.preload('/assets/img/myface.glb')
 
 export default Portrait

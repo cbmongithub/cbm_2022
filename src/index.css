@@ -15,7 +15,7 @@
   --primary-color: #f9f9f9;
   --gray-color: #555;
   --gray-muted: #eee;
-  --gray-scale: 0;
+  --gray-scale: 0.8;
   --secondary-color: #111;
   --text-color: #111;
   --text-color-2: #111;
@@ -33,7 +33,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 0.5em;
+  width: 0.65em;
   color: var(--text-color);
 }
 
@@ -43,7 +43,6 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: var(--text-color);
-  border-radius: 5px;
 }
 
 ul {
@@ -70,35 +69,17 @@ a:hover {
 
 svg:hover {
   cursor: pointer;
-  stroke: var(--gray-color);
   fill: var(--gray-color);
 }
 
-nav {
-  height: 55px;
-  background-color: transparent;
-}
-
-section {
-  padding: 1.2em;
-}
-
-footer {
-  background-color: var(--gray-muted);
-  color: var(--text-color);
-  height: 55px;
+.about,
+.portfolio,
+.contact {
+  margin-top: 55px;
+  padding: 0 1rem;
+  min-height: 100vh;
 }
 
 .overflow {
   overflow-y: hidden;
-}
-
-.home,
-.contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
 }

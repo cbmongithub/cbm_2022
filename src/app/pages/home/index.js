@@ -1,7 +1,9 @@
 import Hero from '../../components/Hero'
 
+import './style.css'
+
 const Home = () => (
-  <section className='home p-0'>
+  <section className='home'>
     <Hero />
   </section>
 )

@@ -5,7 +5,10 @@ const Meta = {
     'I’m Christian. I am a web developer currently attending SLCC for my AAS in Computer Science. Browse my portfolio or contact me anytime.',
 }
 
-const IntroData = `Hey, i'm Christian. I develop applications for the web. I love building new apps. I am passionate about learning code. I enjoy helping others. Feel free to browse my portfolio or contact me anytime. If you are wondering how i created this website, i used React, React three fiber, and Boostrap. View my github to see more of my work`
+const HeroData = {
+  title: `Hey, i'm Christian!`,
+  paragraph: 'I develop web apps',
+}
 
 const DataAbout = {
   title: 'About Me',
@@ -52,74 +55,53 @@ const Services = [
 
 const DataPortfolio = [
   {
-    title: 'Nexus App',
-    img: 'https://picsum.photos/400/?grayscale',
-    description:
-      'The wisdom of life consists in the elimination of non-essentials.',
-    code_link: '#',
-    live_link: '#',
+    title: 'Colorfill App',
+    img: '/assets/img/colorfillapp.jpeg',
+    date: '2/9/2021',
+    tech: 'HTML, CSS VARS, JS',
+    short_description: 'A desktop tool for real time text fill animations.',
+    long_description:
+      "With my colorfill project, i wanted to visualize how text fill animations were moving in real time. One thing i love doing when it comes to developing new elements is playing around with the animation duration, colors, and X and Y axis. The problem with that, as you might know, is it's kind of a pain using dev tools or saving after each change to preview the animation. This problem became my colorfill project- A desktop app that allows you to visualize your text fill animation in real time.",
+    features:
+      'Code generation, copy to clipboard, multiple tags, value reset, any cursor, color picker, custom scrollbar, custom range slider, real time rendering',
+    github_link: 'https://github.com/christianbmartinez/colorfill',
+    live_link: null,
+    npm_link: null,
+    codepen_link: 'https://codepen.io/_coderchris/pen/KKgyywR',
   },
   {
-    title: 'Nexus App',
-    img: 'https://picsum.photos/400/?grayscale',
-    description:
-      'The wisdom of life consists in the elimination of non-essentials.',
-    code_link: '#',
-    live_link: '#',
+    title: 'ColorfillJs',
+    img: '/assets/img/colorfilljs.jpeg',
+    date: '2/9/2021',
+    tech: 'NPM, NPM LINK, NPM PUBLISH, JS',
+    short_description: 'A text fill animation library made with javascript.',
+    long_description:
+      'Colorfilljs is a lightweight text fill animation tool using the power of javascript. It automatically generates your css on whatever pages you wish to include it. Use colorfill on links, titles, or randomly throughout your web app to make your text stand out. ',
+    features: 'Js in css, modularity for vanilla js applications',
+    github_link: 'https://github.com/christianbmartinez/colorfilljs',
+    live_link: null,
+    npm_link: 'https://www.npmjs.com/package/colorfilljs',
+    codepen_link: null,
   },
   {
-    title: 'Nexus App',
-    img: 'https://picsum.photos/600/?grayscale',
-    description:
-      'The wisdom of life consists in the elimination of non-essentials.',
-    code_link: '#',
-    live_link: '#',
-  },
-  {
-    title: 'Nexus App',
-    img: 'https://picsum.photos/400/?grayscale',
-    description:
-      'The wisdom of life consists in the elimination of non-essentials.',
-    code_link: '#',
-    live_link: '#',
-  },
-  {
-    title: 'Nexus App',
-    img: 'https://picsum.photos/400/?grayscale',
-    description:
-      'The wisdom of life consists in the elimination of non-essentials.',
-    code_link: '#',
-    live_link: '#',
-  },
-  {
-    title: 'Nexus App',
-    img: 'https://picsum.photos/400/?grayscale',
-    description:
-      'The wisdom of life consists in the elimination of non-essentials.',
-    code_link: '#',
-    live_link: '#',
-  },
-  {
-    title: 'Nexus App',
-    img: 'https://picsum.photos/600/?grayscale',
-    description:
-      'The wisdom of life consists in the elimination of non-essentials.',
-    code_link: '#',
-    live_link: '#',
-  },
-  {
-    title: 'Nexus App',
-    img: 'https://picsum.photos/400/?grayscale',
-    description:
-      'The wisdom of life consists in the elimination of non-essentials.',
-    code_link: '#',
-    live_link: '#',
+    title: 'Mysteryboard',
+    img: '/assets/img/mysteryboard.jpeg',
+    date: '3/8/2021',
+    tech: 'HTML, CSS, BOOTSTRAP 5, JS, EJS, MONGODB, EXPRESS',
+    short_description: 'Post content while remaining anonymous.',
+    long_description:
+      "The user lands on the home page, submits their data via a simple form, and express posts that data to mongodb, where it is stored for subsequent retrieval. When express redirects the user to the mysteryboards view, it renders the data from the database, and the most recent post is at the top. All content is rendered into a unique container with the users fictional name (optional, default is anonymous), text content, and dayjs formatted date. The user can scroll through all other mysteryboard posts from other users. You don't need a username or password to use mysteryboard.",
+    features:
+      'Full stack application, profanity filtering, dayjs (years ago, months ago, seconds ago, etc), heroku, node, undraw, scroll to top, data filtering, read more, heart/unheart posts, mysterybot',
+    github_link: 'https://github.com/christianbmartinez/mysteryboard',
+    live_link: 'https://mysteryboard.herokuapp.com/',
+    npm_link: null,
+    codepen_link: null,
   },
 ]
 
 const ContactConfig = {
-  description:
-    "I'm available to chat any day of the week! Send a message and i will respond as soon as possible.",
+  description: 'Send a message and i will respond as soon as possible.',
   service_id: `${process.env.REACT_APP_SERVICE_ID}`,
   template_id: `${process.env.REACT_APP_TEMPLATE_ID}`,
   user_id: `${process.env.REACT_APP_USER_ID}`,
@@ -139,7 +121,7 @@ export {
   DataPortfolio,
   Skills,
   Services,
-  IntroData,
+  HeroData,
   ContactConfig,
   Socials,
   LogoText,

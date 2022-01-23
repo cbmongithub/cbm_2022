@@ -66,16 +66,15 @@ const Contact = () => {
 
   return (
     <section className='contact'>
-      <Container className='pt-5'>
-        <Row className='pt-5'>
+      <Container>
+        <Row className='mt-5'>
           <Col lg='8'>
-            <h1 className='display-4 mb-4'>Contact Me</h1>
-            <hr className='t_border my-4 ml-0 text-left' />
+            <h1 className='display-4 mb-4'>Contact</h1>
+            <hr className='t_border mb-4 text-left' />
+            <p>{ContactConfig.description}</p>
           </Col>
         </Row>
-      </Container>
-      <Container className='py-5'>
-        <Row>
+        <Row className='mb-5'>
           <Col lg='12'>
             <Alert
               variant={formData.variant}
@@ -88,11 +87,7 @@ const Contact = () => {
               <p className='my-0'>{formData.alertmessage}</p>
             </Alert>
           </Col>
-          <Col lg='5' className='mb-5'>
-            <h3 className='pb-4'>Get in touch</h3>
-            <p>{ContactConfig.description}</p>
-          </Col>
-          <Col lg='7' className='d-flex align-items-center'>
+          <Col lg='12' className='d-flex align-items-center'>
             <form onSubmit={handleSubmit} className='contact__form w-100'>
               <Row>
                 <Col lg='6' className='form-group'>
