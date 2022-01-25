@@ -1,15 +1,23 @@
-import { BrowserRouter as Router } from 'react-router-dom'
-import Routing from './routing'
-import NavBar from './components/NavBar'
-import SocialIcons from './components/SocialIcons'
-import Footer from './components/Footer'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import Layout from './components/Layout'
+
+import Home from './pages/home'
+import About from './pages/about'
+import Portfolio from './pages/portfolio'
+import Contact from './pages/contact'
 
 const App = () => (
   <Router basename={process.env.PUBLIC_URL}>
-    <NavBar />
-    <SocialIcons />
-    <Routing />
-    <Footer />
+    <Layout>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/portfolio' element={<Portfolio />} />
+        <Route path='/contact' element={<Contact />} />
+      </Routes>
+    </Layout>
   </Router>
 )
 

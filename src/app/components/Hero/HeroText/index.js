@@ -3,6 +3,7 @@ import React, { useMemo, useRef, useLayoutEffect } from 'react'
 import { extend, useLoader } from '@react-three/fiber'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
+import { MeshWobbleMaterial } from '@react-three/drei'
 const boldUrl = '/assets/fonts/blob.json'
 
 extend({ TextGeometry })
@@ -12,7 +13,7 @@ const HeroText = ({
   vAlign = 'center',
   hAlign = 'center',
   size = 1.5,
-  color = '#444',
+  color = '#000',
   ...props
 }) => {
   const font = useLoader(FontLoader, boldUrl)
@@ -20,8 +21,8 @@ const HeroText = ({
     () => ({
       font,
       size: 1.5,
-      height: 0,
-      color: '#444',
+      height: 0.5,
+      color: '#eee',
     }),
     [font]
   )
@@ -39,7 +40,7 @@ const HeroText = ({
     <group {...props} scale={[0.05 * size, 0.05 * size, 0.05]}>
       <mesh ref={mesh}>
         <textGeometry args={[children, config]} />
-        <meshBasicMaterial color={config.color} />
+        <MeshWobbleMaterial color={config.color} factor={0.4} speed={0.1} />
       </mesh>
     </group>
   )

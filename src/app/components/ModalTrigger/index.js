@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Modal, Row, Col } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import { FaInfoCircle } from 'react-icons/fa'
 
 import './style.css'
@@ -30,22 +30,12 @@ const ModalTrigger = ({ title, description, features, date, tech }) => {
           </button>
         </Modal.Header>
         <Modal.Body className='modal__body'>
-          <Row>
-            <Col lg={8} className='text-left'>
-              <p>{`Date: ${date}`}</p>
-            </Col>
-            <Col lg={4} className='text-right'>
-              <p>{`Tech: ${tech}`}</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col lg={12} className='text-left'>
-              <h6>Description: </h6>
-              <p>{description}</p>
-              <h6>Features: </h6>
-              <p>{features}</p>
-            </Col>
-          </Row>
+          <p>{`Date: ${date}`}</p>
+
+          <p>{`Tech: ${tech}`}</p>
+
+          <p>{`Description: ${description}`}</p>
+          <p>{`Features: ${features}`}</p>
         </Modal.Body>
       </Modal>
     </>

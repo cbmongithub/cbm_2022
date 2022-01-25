@@ -15,7 +15,7 @@
   --primary-color: #f9f9f9;
   --gray-color: #555;
   --gray-muted: #eee;
-  --gray-scale: 0.8;
+  --gray-scale: 0;
   --secondary-color: #111;
   --text-color: #111;
   --text-color-2: #111;
@@ -76,7 +76,7 @@ svg:hover {
 .portfolio,
 .contact {
   margin-top: 55px;
-  padding: 0 1rem;
+  padding: 0;
   min-height: 100vh;
 }
 

@@ -9,12 +9,16 @@
 }
 
 .logo__a {
-  width: 4%;
+  width: 55px;
   z-index: 1054;
 }
 
 .cbm__logo {
   fill: var(--text-color);
+}
+
+.cbm__logo:hover {
+  fill: var(--gray-color);
 }
 
 .menu__button:focus,
