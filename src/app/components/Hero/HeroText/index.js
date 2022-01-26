@@ -13,7 +13,7 @@ const HeroText = ({
   vAlign = 'center',
   hAlign = 'center',
   size = 1.5,
-  color = '#000',
+  color = '#444',
   ...props
 }) => {
   const font = useLoader(FontLoader, boldUrl)
@@ -22,9 +22,9 @@ const HeroText = ({
       font,
       size: 1.5,
       height: 0.5,
-      color: '#eee',
+      color: color,
     }),
-    [font]
+    [font, color]
   )
   const mesh = useRef()
   useLayoutEffect(() => {

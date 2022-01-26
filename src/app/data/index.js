@@ -1,19 +1,19 @@
-const LogoText = 'CHRISTIAN'
-const Meta = {
-  title: 'Christian Martinez | Web Developer',
-  description:
-    'I’m Christian. I am a web developer currently attending SLCC for my AAS in Computer Science. Browse my portfolio or contact me anytime.',
-}
-
 const HeroData = {
   title: `Hey, i'm Christian!`,
   paragraph: 'I develop web apps',
 }
 
-const DataAbout = {
-  title: 'About Me',
-  aboutme:
-    'I began my web development journey in 2015. After getting comfortable with Html, Css, and Js, I graduated to more complex concepts and frameworks in recent years. I am currently attending SLCC for my AAS in Computer Science.',
+const MetaData = {
+  site_title: 'Christian B. Martinez',
+  site_description: "Hey, i'm Christian. I am a web developer from Utah.",
+  portfolio_title: 'Portfolio',
+  portfolio_p:
+    'Browse through my recently completed projects. View code or live site for each project.',
+  about_title: 'About',
+  about_p:
+    'I began coding in 2015 with Html, Css, and Javascript. Fast forward to today, i am able to deploy full stack applications. I am currently attending SLCC for my AAS in Computer Science.',
+  contact_title: 'Contact',
+  contact_p: 'Send me a message and i will respond as soon as possible.',
 }
 
 const Skills = [
@@ -53,7 +53,7 @@ const Services = [
   },
 ]
 
-const DataPortfolio = [
+const PortfolioData = [
   {
     title: 'Colorfill App',
     img: '/assets/img/colorfillapp.jpeg',
@@ -101,7 +101,6 @@ const DataPortfolio = [
 ]
 
 const ContactConfig = {
-  description: 'Send a message and i will respond as soon as possible.',
   service_id: `${process.env.REACT_APP_SERVICE_ID}`,
   template_id: `${process.env.REACT_APP_TEMPLATE_ID}`,
   user_id: `${process.env.REACT_APP_USER_ID}`,
@@ -116,13 +115,11 @@ const Socials = {
   codepen: 'https://codepen.io/_coderchris',
 }
 export {
-  Meta,
-  DataAbout,
-  DataPortfolio,
+  MetaData,
+  PortfolioData,
   Skills,
   Services,
   HeroData,
   ContactConfig,
   Socials,
-  LogoText,
 }

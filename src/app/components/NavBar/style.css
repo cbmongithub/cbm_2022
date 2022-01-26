@@ -9,7 +9,7 @@
 }
 
 .logo__a {
-  width: 55px;
+  width: 45px;
   z-index: 1054;
 }
 
@@ -174,7 +174,7 @@
 
 @media screen and (min-width: 768px) {
   .main__menu .menu_item > a {
-    font-size: 4rem;
+    font-size: 3.5rem;
   }
   .menu__footer svg {
     font-size: 1.25rem;

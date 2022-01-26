@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { WiMoonAltWaningCrescent4 } from 'react-icons/wi'
+import { FaMoon, FaSun } from 'react-icons/fa'
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme'))
@@ -12,7 +12,7 @@ const ThemeToggle = () => {
   }, [theme])
   return (
     <div className='nav_action' onClick={toggleTheme}>
-      <WiMoonAltWaningCrescent4 />
+      {theme === 'dark' ? <FaSun /> : <FaMoon />}
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 import * as emailjs from 'emailjs-com'
-import { ContactConfig } from '../../data'
+import { MetaData, ContactConfig } from '../../data'
 import { Container, Row, Col, Alert } from 'react-bootstrap'
 
 import './style.css'
@@ -65,83 +66,91 @@ const Contact = () => {
   }
 
   return (
-    <section className='contact'>
-      <Container>
-        <Row className='mt-5'>
-          <Col lg='8'>
-            <h1 className='display-4 mb-4'>Contact</h1>
-            <hr className='t_border mb-4 text-left' />
-            <p>{ContactConfig.description}</p>
-          </Col>
-        </Row>
-        <Row className='mb-5'>
-          <Col lg='12'>
-            <Alert
-              variant={formData.variant}
-              className={`rounded-0 co_alert ${
-                formData.show ? 'd-block' : 'd-none'
-              }`}
-              onClose={() => setFormdata({ show: false })}
-              dismissible
-            >
-              <p className='my-0'>{formData.alertmessage}</p>
-            </Alert>
-          </Col>
-          <Col lg='12' className='d-flex align-items-center'>
-            <form onSubmit={handleSubmit} className='contact__form w-100'>
-              <Row>
-                <Col lg='6' className='form-group'>
-                  <input
-                    className='form-control'
-                    id='name'
-                    name='name'
-                    placeholder='Name'
-                    value={formData.name || ''}
-                    type='text'
-                    required
-                    onChange={handleChange}
-                    autoComplete='off'
-                  />
-                </Col>
-                <Col lg='6' className='form-group'>
-                  <input
-                    className='form-control rounded-0'
-                    id='email'
-                    name='email'
-                    placeholder='Email'
-                    type='email'
-                    value={formData.email || ''}
-                    required
-                    autoComplete='off'
-                    onChange={handleChange}
-                  />
-                </Col>
-              </Row>
-              <textarea
-                className='form-control rounded-0'
-                id='message'
-                name='message'
-                placeholder='Write message...'
-                rows='5'
-                value={formData.message}
-                autoComplete='off'
-                onChange={handleChange}
-                required
-              ></textarea>
-              <br />
-              <Row>
-                <Col lg='12' className='form-group'>
-                  <button className='btn__submit' type='submit'>
-                    {formData.loading ? 'Sending...' : 'Send'}
-                  </button>
-                </Col>
-              </Row>
-            </form>
-          </Col>
-        </Row>
-      </Container>
-      <div className={formData.loading ? 'loading-bar' : 'd-none'}></div>
-    </section>
+    <HelmetProvider>
+      <Helmet>
+        <title>
+          {MetaData.site_title} | {MetaData.contact_title}
+        </title>
+        <meta name='description' content={MetaData.contact_p} />
+      </Helmet>
+      <section className='contact'>
+        <Container>
+          <Row className='mt-5'>
+            <Col lg='8' className='mt-4'>
+              <h1 className='display-4 mb-4'>{MetaData.contact_title}</h1>
+              <hr className='t_border mb-4 text-left' />
+              <p>{MetaData.contact_p}</p>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg='12' className='mt-4'>
+              <Alert
+                variant={formData.variant}
+                className={`rounded-0 co_alert ${
+                  formData.show ? 'd-block' : 'd-none'
+                }`}
+                onClose={() => setFormdata({ show: false })}
+                dismissible
+              >
+                <p className='my-0'>{formData.alertmessage}</p>
+              </Alert>
+            </Col>
+            <Col lg='12' className='d-flex align-items-center'>
+              <form onSubmit={handleSubmit} className='contact__form w-100'>
+                <Row>
+                  <Col lg='6' className='form-group'>
+                    <input
+                      className='form-control'
+                      id='name'
+                      name='name'
+                      placeholder='Name'
+                      value={formData.name || ''}
+                      type='text'
+                      required
+                      onChange={handleChange}
+                      autoComplete='off'
+                    />
+                  </Col>
+                  <Col lg='6' className='form-group'>
+                    <input
+                      className='form-control rounded-0'
+                      id='email'
+                      name='email'
+                      placeholder='Email'
+                      type='email'
+                      value={formData.email || ''}
+                      required
+                      autoComplete='off'
+                      onChange={handleChange}
+                    />
+                  </Col>
+                </Row>
+                <textarea
+                  className='form-control rounded-0'
+                  id='message'
+                  name='message'
+                  placeholder='Write message...'
+                  rows='5'
+                  value={formData.message}
+                  autoComplete='off'
+                  onChange={handleChange}
+                  required
+                ></textarea>
+                <br />
+                <Row>
+                  <Col lg='12' className='form-group'>
+                    <button className='btn__submit' type='submit'>
+                      {formData.loading ? 'Sending...' : 'Send'}
+                    </button>
+                  </Col>
+                </Row>
+              </form>
+            </Col>
+          </Row>
+        </Container>
+        <div className={formData.loading ? 'loading-bar' : 'd-none'}></div>
+      </section>
+    </HelmetProvider>
   )
 }
 

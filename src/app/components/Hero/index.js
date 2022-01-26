@@ -44,6 +44,28 @@ const ParagraphText = () => {
   )
 }
 
+const HiddenText = () => {
+  const thirdRef = useRef()
+  useFrame((state) => {
+    const t = state.clock.getElapsedTime()
+    thirdRef.current.rotation.z = Math.cos(t / 2) / 40
+    thirdRef.current.rotation.x = Math.sin(t / 2) / 40
+    thirdRef.current.rotation.y = Math.cos(t / 2) / 40
+  })
+  return (
+    <group ref={thirdRef}>
+      <HeroText
+        position={[-1, 1, -10]}
+        vAlign='top'
+        size={1}
+        children='PLAY GAME'
+        color={'red'}
+        onPointerDown={() => (window.location.pathname = 'game')}
+      />
+    </group>
+  )
+}
+
 const Hero = () => (
   <Suspense fallback={<Loader />}>
     <Canvas
@@ -60,6 +82,7 @@ const Hero = () => (
       <Portrait />
       <TitleText />
       <ParagraphText />
+      <HiddenText />
       <OrbitControls
         autoRotate={false}
         autoRotateSpeed={0.1}
