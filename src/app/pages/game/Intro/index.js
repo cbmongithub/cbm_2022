@@ -6,9 +6,10 @@ const Intro = ({ children }) => {
   return (
     <>
       {cloneElement(children, { ready: clicked })}
-      <div className={`fullscreen bg ${clicked ? 'clicked' : ''}`}>
+      <div className={`fullscreen text-center bg ${clicked ? 'clicked' : ''}`}>
         <Link onClick={() => setClicked(true)} to='/game'>
           Start
+          <p className='text-small'>Not optimized for mobile</p>
         </Link>
       </div>
     </>

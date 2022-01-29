@@ -4,9 +4,11 @@ import PlayGame from './PlayGame'
 import './style.css'
 
 const Game = () => (
-  <Intro>
-    <PlayGame />
-  </Intro>
+  <section className='game'>
+    <Intro>
+      <PlayGame />
+    </Intro>
+  </section>
 )
 
 export default Game

@@ -135,7 +135,7 @@ function Ball() {
 const PlayGame = ({ ready }) => {
   return (
     <Canvas
-      style={{ width: '100%', height: '100vh' }}
+      style={{ width: '100vw', height: '100vh', position: 'absolute' }}
       shadows
       camera={{ position: [0, 5, 12], fov: 50 }}
     >

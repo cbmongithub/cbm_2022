@@ -59,7 +59,6 @@ const HiddenText = () => {
         vAlign='top'
         size={1}
         children='PLAY GAME'
-        color={'red'}
         onPointerDown={() => (window.location.pathname = 'game')}
       />
     </group>

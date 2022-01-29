@@ -77,7 +77,7 @@ const PortfolioData = [
     short_description: 'A text fill animation library made with javascript.',
     long_description:
       'Colorfilljs is a lightweight text fill animation tool using the power of javascript. It automatically generates your css on whatever pages you wish to include it. Use colorfill on links, titles, or randomly throughout your web app to make your text stand out. ',
-    features: 'Js in css, modularity for vanilla js applications',
+    features: 'Css in js, modularity for vanilla js applications',
     github_link: 'https://github.com/christianbmartinez/colorfilljs',
     live_link: null,
     npm_link: 'https://www.npmjs.com/package/colorfilljs',

@@ -30,7 +30,6 @@ body {
   font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: all 0.5s;
 }
 
 body::-webkit-scrollbar {
@@ -71,6 +70,16 @@ a:hover {
 svg:hover {
   cursor: pointer;
   fill: var(--gray-color);
+}
+
+::selection {
+  color: none;
+  background: none;
+}
+
+::-moz-selection {
+  color: none;
+  background: none;
 }
 
 .about,
