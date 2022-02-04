@@ -56,7 +56,7 @@ const Services = [
 const PortfolioData = [
   {
     title: 'Colorfill App',
-    img: '/assets/img/colorfillapp.jpeg',
+    img: '/assets/img/projects/colorfillapp.jpeg',
     date: '2/9/2021',
     tech: 'HTML, CSS VARS, JS',
     short_description: 'A desktop tool for real time text fill animations.',
@@ -71,7 +71,7 @@ const PortfolioData = [
   },
   {
     title: 'ColorfillJs',
-    img: '/assets/img/colorfilljs.jpeg',
+    img: '/assets/img/projects/colorfilljs.jpeg',
     date: '2/9/2021',
     tech: 'NPM, NPM LINK, NPM PUBLISH, JS',
     short_description: 'A text fill animation library made with javascript.',
@@ -85,7 +85,7 @@ const PortfolioData = [
   },
   {
     title: 'Mysteryboard',
-    img: '/assets/img/mysteryboard.jpeg',
+    img: '/assets/img/projects/mysteryboard.jpeg',
     date: '3/8/2021',
     tech: 'HTML, CSS, BOOTSTRAP 5, JS, EJS, MONGODB, EXPRESS',
     short_description: 'Post content while remaining anonymous.',

@@ -31,19 +31,22 @@ const SkyBox = () => {
   const { scene } = useThree()
   const bgLoader = new CubeTextureLoader()
   const bgTexture = bgLoader.load([
-    '/assets/img/skybox.jpg',
-    '/assets/img/skybox.jpg',
-    '/assets/img/skybox.jpg',
-    '/assets/img/skybox.jpg',
-    '/assets/img/skybox.jpg',
-    '/assets/img/skybox.jpg',
+    '/assets/img/hero/skybox/light_ft.png',
+    '/assets/img/hero/skybox/light_bk.png',
+    '/assets/img/hero/skybox/light_up.png',
+    '/assets/img/hero/skybox/light_dn.png',
+    '/assets/img/hero/skybox/light_rt.png',
+    '/assets/img/hero/skybox/light_lf.png',
   ])
   scene.background = bgTexture
   return null
 }
 
 const Hero = () => {
-  const texture = useLoader(TextureLoader, '/assets/img/minecraft_grass.jpg')
+  const texture = useLoader(
+    TextureLoader,
+    '/assets/img/hero/minecraft_grass.jpg'
+  )
   texture.wrapS = texture.wrapT = RepeatWrapping
   texture.repeat.set(50, 50)
 
@@ -59,13 +62,18 @@ const Hero = () => {
       pixelRatio={window.devicePixelRatio}
     >
       <CameraControls />
-      <ambientLight intensity={0.4} />
-      <pointLight castShadow position={[-75, 75, 75]} intensity={0.2} />
+      <ambientLight color={'#fff4d9'} intensity={0.4} />
+      <pointLight
+        position={[180, 75, 75]}
+        color={'#fff4d9'}
+        intensity={0.13}
+        castShadow
+      />
       <Plane
         receiveShadow
         rotation={[-Math.PI / 2, 0, 0]}
         position={[0, -1, 0]}
-        args={[5000, 5000]}
+        args={[4096, 4096]}
       >
         <meshPhongMaterial attach='material' map={texture} />
       </Plane>

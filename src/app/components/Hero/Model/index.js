@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import * as THREE from 'three'
+import { AnimationMixer, FrontSide } from 'three'
 
 const Model = () => {
-  const model = useLoader(GLTFLoader, '/assets/img/horseback.gltf')
-  const mixer = new THREE.AnimationMixer(model.scene)
+  const model = useLoader(GLTFLoader, '/assets/img/hero/models/horseback.gltf')
+  const mixer = new AnimationMixer(model.scene)
   const animationList = model.animations.map((animation) => animation.name)
   const [count, setCount] = useState(0)
   const anim = animationList[count]
@@ -29,7 +29,7 @@ const Model = () => {
     if (child.isMesh) {
       child.castShadow = true
       child.receiveShadow = true
-      child.material.side = THREE.FrontSide
+      child.material.side = FrontSide
     }
   })
 
