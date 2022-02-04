@@ -5,10 +5,10 @@ const ThemeToggle = () => {
   const [theme, setTheme] = useState(
     localStorage.getItem('theme')
       ? localStorage.getItem('theme')
-      : localStorage.setItem('theme', 'light')
+      : localStorage.setItem('theme', 'dark')
   )
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
