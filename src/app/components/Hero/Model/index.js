@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as THREE from 'three'
@@ -9,10 +9,6 @@ const Model = () => {
   const animationList = model.animations.map((animation) => animation.name)
   const [count, setCount] = useState(0)
   const anim = animationList[count]
-
-  useEffect(() => {
-    console.log(count)
-  })
 
   const handleAnimation = () => {
     count >= 10 ? setCount(0) : setCount(count + 1)
