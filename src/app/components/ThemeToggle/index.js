@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
 
 const ThemeToggle = () => {
@@ -7,8 +7,12 @@ const ThemeToggle = () => {
       ? localStorage.getItem('theme')
       : localStorage.setItem('theme', 'dark')
   )
+  let location = window.location
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
+    location.pathname === '/'
+      ? location.reload()
+      : console.log('This is not the home page')
   }
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)

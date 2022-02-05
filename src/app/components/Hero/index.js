@@ -1,4 +1,5 @@
-import { useRef } from 'react'
+import { useState, useRef } from 'react'
+import useUpdateEffect from '../../hooks/useUpdateEffect'
 import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { RepeatWrapping, CubeTextureLoader } from 'three'
@@ -29,14 +30,18 @@ const CameraControls = () => {
 
 const SkyBox = () => {
   const { scene } = useThree()
+  const [day, setDay] = useState()
+  useUpdateEffect(() => {
+    setDay(document.documentElement.getAttribute('data-theme'))
+  })
   const bgLoader = new CubeTextureLoader()
   const bgTexture = bgLoader.load([
-    '/assets/img/hero/skybox/light_ft.png',
-    '/assets/img/hero/skybox/light_bk.png',
-    '/assets/img/hero/skybox/light_up.png',
-    '/assets/img/hero/skybox/light_dn.png',
-    '/assets/img/hero/skybox/light_rt.png',
-    '/assets/img/hero/skybox/light_lf.png',
+    `/assets/img/hero/skybox/${day}_ft.png`,
+    `/assets/img/hero/skybox/${day}_bk.png`,
+    `/assets/img/hero/skybox/${day}_up.png`,
+    `/assets/img/hero/skybox/${day}_dn.png`,
+    `/assets/img/hero/skybox/${day}_rt.png`,
+    `/assets/img/hero/skybox/${day}_lf.png`,
   ])
   scene.background = bgTexture
   return null
@@ -55,7 +60,6 @@ const Hero = () => {
       style={{
         width: '100%',
         height: '100vh',
-        filter: 'grayscale(var(--gray-scale))',
       }}
       camera={{ fov: 75, position: [-180, 55, 50] }}
       shadows
