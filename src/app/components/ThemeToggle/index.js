@@ -7,17 +7,20 @@ const ThemeToggle = () => {
       ? localStorage.getItem('theme')
       : localStorage.setItem('theme', 'dark')
   )
-  let location = window.location
+
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
-    location.pathname === '/'
-      ? location.reload()
-      : console.log('This is not the home page')
+    let location = window.location
+    if (location.pathname === '/') {
+      location.reload()
+    }
   }
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
   }, [theme])
+
   return (
     <div className='nav_action' onClick={toggleTheme}>
       {theme === 'dark' ? <FaSun /> : <FaMoon />}

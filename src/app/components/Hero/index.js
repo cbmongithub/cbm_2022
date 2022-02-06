@@ -1,5 +1,4 @@
-import { useState, useRef } from 'react'
-import useUpdateEffect from '../../hooks/useUpdateEffect'
+import { useEffect, useRef } from 'react'
 import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { RepeatWrapping, CubeTextureLoader } from 'three'
@@ -30,20 +29,22 @@ const CameraControls = () => {
 
 const SkyBox = () => {
   const { scene } = useThree()
-  const [day, setDay] = useState()
-  useUpdateEffect(() => {
-    setDay(document.documentElement.getAttribute('data-theme'))
-  })
-  const bgLoader = new CubeTextureLoader()
-  const bgTexture = bgLoader.load([
-    `/assets/img/hero/skybox/${day}_ft.png`,
-    `/assets/img/hero/skybox/${day}_bk.png`,
-    `/assets/img/hero/skybox/${day}_up.png`,
-    `/assets/img/hero/skybox/${day}_dn.png`,
-    `/assets/img/hero/skybox/${day}_rt.png`,
-    `/assets/img/hero/skybox/${day}_lf.png`,
-  ])
-  scene.background = bgTexture
+  useEffect(() => {
+    let day = document.documentElement.getAttribute('data-theme')
+    if (day === 'undefined' || undefined) {
+      day = 'dark'
+    }
+    const bgLoader = new CubeTextureLoader()
+    const bgTexture = bgLoader.load([
+      `/assets/img/hero/skybox/${day}_ft.png`,
+      `/assets/img/hero/skybox/${day}_bk.png`,
+      `/assets/img/hero/skybox/${day}_up.png`,
+      `/assets/img/hero/skybox/${day}_dn.png`,
+      `/assets/img/hero/skybox/${day}_rt.png`,
+      `/assets/img/hero/skybox/${day}_lf.png`,
+    ])
+    scene.background = bgTexture
+  }, [scene])
   return null
 }
 
