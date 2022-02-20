@@ -1,6 +1,6 @@
 # What's this?
 
-My 2022 [website](https://www.christianbmartinez.com/) under development
+My 2022 [website](https://www.christianbmartinez.com/)
 
 # Built with
 
