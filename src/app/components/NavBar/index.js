@@ -38,7 +38,7 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div className={`site__navigation ${!isActive ? 'menu__opened' : ''}`}>
+      <div className={`site__navigation ${!isActive ? 'menu__opened' : null}`}>
         <div className='bg__menu h-100'>
           <div className='menu__wrapper'>
             <div className='menu__container p-3'>

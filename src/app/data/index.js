@@ -98,6 +98,21 @@ const PortfolioData = [
     npm_link: null,
     codepen_link: null,
   },
+  {
+    title: 'MMBC',
+    img: '/assets/img/projects/mmbc.jpeg',
+    date: '2/12/2022',
+    tech: 'REACT, TAILWIND, LOGO DESIGN',
+    short_description: 'Business Consulting React SPA for MMBC.',
+    long_description:
+      'MMBC wanted a site where users can learn and discover their professional services. I delivered a custom solution using react and tailwind, that got all information their customers needed. Using google cloud console and app engine, I created an app.yaml file and pushed their build live after dns re configuration.',
+    features:
+      'React, Tailwind CSS, Google Cloud Console, Custom Scrollbar, Custom Icons, Logo Design',
+    github_link: 'https://github.com/christianbmartinez/mmbc',
+    live_link: 'https://www.mmbc.llc/',
+    npm_link: null,
+    codepen_link: null,
+  },
 ]
 
 const ContactConfig = {
