@@ -119,6 +119,7 @@
   will-change: transform;
   transform: translateY(-100%);
   transition: 0.5s ease all;
+  z-index: 1054;
 }
 
 .menu__opened .bg__menu {
