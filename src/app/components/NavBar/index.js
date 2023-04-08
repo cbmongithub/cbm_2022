@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { VscGrabber, VscClose } from 'react-icons/vsc'
-import { FaGithub, FaTiktok, FaCodepen } from 'react-icons/fa'
+import { FaGithub, FaTiktok, FaCodepen, FaTwitter } from 'react-icons/fa'
 import { Socials } from '../../data'
 import ThemeToggle from '../ThemeToggle'
 import { Link } from 'react-router-dom'
@@ -87,6 +87,13 @@ const NavBar = () => {
                   rel='noopener noreferrer'
                 >
                   <FaTiktok />
+                </a>
+                <a
+                  href={Socials.twitter}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <FaTwitter />
                 </a>
               </div>
             </div>

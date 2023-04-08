@@ -11,7 +11,7 @@ const MetaData = {
     'Browse through my recently completed projects. View code or live site for each project.',
   about_title: 'About',
   about_p:
-    'I began coding in 2015 with Html, Css, and Javascript. Fast forward to today, i am able to deploy full stack applications. I am currently attending SLCC for my AAS in Computer Science.',
+    'I began coding in 2015 with Html, Css, and Javascript. Fast forward to today, i am able to deploy full stack applications. I am currently attending University of Utahs coding bootcamp.',
   contact_title: 'Contact',
   contact_p: 'Send me a message and i will respond as soon as possible.',
 }
@@ -55,6 +55,21 @@ const Services = [
 
 const PortfolioData = [
   {
+    title: 'Twitter Bot',
+    img: '/assets/img/projects/twitterbot.jpeg',
+    date: '3/28/2023',
+    tech: 'JS, NODE, CHATGPT',
+    short_description: 'An AI twitter bot that tweets every two hours.',
+    long_description:
+      "In this project, i wanted to utilize chatgpt on twitter. The bot uses ChatGPT, Generates a tweet based on a random topic, and follows a user if they speak English and tweet about certain topics",
+    features:
+      'ChatGPT, Twitter API',
+    github_link: 'https://github.com/christianbmartinez/twitterbot',
+    live_link: 'https://twitter.com/chaoticmuchbot',
+    npm_link: null,
+    codepen_link: null,
+  },
+  {
     title: 'Colorfill App',
     img: '/assets/img/projects/colorfillapp.jpeg',
     date: '2/9/2021',
@@ -94,7 +109,7 @@ const PortfolioData = [
     features:
       'Full stack application, profanity filtering, dayjs (years ago, months ago, seconds ago, etc), heroku, node, undraw, scroll to top, data filtering, read more, heart/unheart posts, mysterybot',
     github_link: 'https://github.com/christianbmartinez/mysteryboard',
-    live_link: 'https://mysteryboard.herokuapp.com/',
+    live_link: null,
     npm_link: null,
     codepen_link: null,
   },
@@ -126,9 +141,10 @@ const Socials = {
   facebook: 'https://facebook.com',
   linkedin: 'https://linkedin.com',
   tiktok: 'https://www.tiktok.com/@coderchris',
-  twitter: 'https://twitter.com',
+  twitter: 'https://twitter.com/_coderchris',
   codepen: 'https://codepen.io/_coderchris',
 }
+
 export {
   MetaData,
   PortfolioData,

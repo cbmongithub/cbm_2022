@@ -1,4 +1,4 @@
-import { FaGithub, FaTiktok, FaCodepen } from 'react-icons/fa'
+import { FaGithub, FaTiktok, FaCodepen, FaTwitter } from 'react-icons/fa'
 import { Socials } from '../../data'
 import './style.css'
 
@@ -18,6 +18,11 @@ const SocialIcons = () => (
       <li>
         <a href={Socials.tiktok} target='_blank' rel='noopener noreferrer'>
           <FaTiktok />
+        </a>
+      </li>
+      <li>
+        <a href={Socials.twitter} target='_blank' rel='noopener noreferrer'>
+          <FaTwitter />
         </a>
       </li>
     </ul>
