@@ -3,18 +3,6 @@ const HeroData = {
   paragraph: 'I develop web apps',
 }
 
-const IntroData = {
-  title: "I'm Christian",
-  animated: {
-    first: 'I build web apps.',
-    second: 'I love to learn.',
-    third: 'I enjoy helping others.',
-    fourth: 'I love coffee.',
-  },
-  description:
-    "Welcome to my portfolio site! Feel free to browse my work, and don't hesitate to get in touch.",
-}
-
 const MetaData = {
   site_title: 'Christian B. Martinez',
   site_description: "Hey, i'm Christian. I am a web developer from Utah.",
@@ -73,8 +61,9 @@ const PortfolioData = [
     tech: 'JS, NODE, CHATGPT',
     short_description: 'An AI twitter bot that tweets every two hours.',
     long_description:
-      'In this project, i wanted to utilize chatgpt on twitter. The bot uses ChatGPT, Generates a tweet based on a random topic, and follows a user if they speak English and tweet about certain topics',
-    features: 'ChatGPT, Twitter API',
+      "In this project, i wanted to utilize chatgpt on twitter. The bot uses ChatGPT, Generates a tweet based on a random topic, and follows a user if they speak English and tweet about certain topics",
+    features:
+      'ChatGPT, Twitter API',
     github_link: 'https://github.com/christianbmartinez/twitterbot',
     live_link: 'https://twitter.com/chaoticmuchbot',
     npm_link: null,
@@ -157,7 +146,6 @@ const Socials = {
 }
 
 export {
-  IntroData,
   MetaData,
   PortfolioData,
   Skills,

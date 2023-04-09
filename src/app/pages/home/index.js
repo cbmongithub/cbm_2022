@@ -13,11 +13,7 @@ const Home = () => (
       <meta name='description' content={MetaData.site_description} />
     </Helmet>
 
-    <section
-      className={`${
-        localStorage.getItem('theme') === 'dark' ? 'home' : 'home-2'
-      }`}
-    >
+    <section className='home'>
       <Suspense fallback={<Loader />}>
         <Hero />
       </Suspense>
