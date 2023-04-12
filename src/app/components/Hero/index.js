@@ -1,13 +1,21 @@
 import { useEffect, useRef } from 'react'
 import { FaHandPointer } from 'react-icons/fa'
-import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber'
+import {
+  extend,
+  Canvas,
+  useLoader,
+  useThree,
+  useFrame,
+} from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
+import { Text } from 'troika-three-text'
 import { RepeatWrapping, CubeTextureLoader } from 'three'
 import { Environment, Plane, OrbitControls } from '@react-three/drei'
-
 import Model from './Model'
-
+import { HeroData } from '../../data'
 import './style.css'
+import font from './Font'
+extend({ Text })
 
 const CameraControls = () => {
   const {
@@ -56,8 +64,25 @@ const Hero = () => {
     TextureLoader,
     '/assets/img/hero/minecraft_grass.jpg'
   )
+  function color() {
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
+      return '#111'
+    } else {
+      return '#fff'
+    }
+  }
   texture.wrapS = texture.wrapT = RepeatWrapping
   texture.repeat.set(50, 50)
+  const opts = {
+    font: 'Philosopher',
+    fontSize: 120,
+    color: color(),
+    maxWidth: 1000,
+    lineHeight: 1,
+    letterSpacing: 0,
+    textAlign: 'justify',
+    materialType: 'MeshPhongMaterial',
+  }
 
   return (
     <>
@@ -70,6 +95,20 @@ const Hero = () => {
         shadows
         pixelRatio={window.devicePixelRatio}
       >
+        <text
+          position-x={0}
+          position-z={-700}
+          position-y={150}
+          {...opts}
+          text={`${HeroData.title}\n${HeroData.paragraph}`}
+          font={font[opts.font]}
+          anchorX='center'
+          anchorY='middle'
+        >
+          {opts.materialType === 'MeshPhongMaterial' ? (
+            <meshPhongMaterial attach='material' color={opts.color} />
+          ) : null}
+        </text>
         <CameraControls />
         <ambientLight color={'#fff4d9'} intensity={0.4} />
         <pointLight
