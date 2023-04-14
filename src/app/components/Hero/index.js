@@ -12,6 +12,7 @@ import { Text } from 'troika-three-text'
 import { RepeatWrapping, CubeTextureLoader } from 'three'
 import { Environment, Plane, OrbitControls } from '@react-three/drei'
 import Model from './Model'
+import Trees from './Trees'
 import { HeroData } from '../../data'
 import './style.css'
 import font from './Font'
@@ -67,7 +68,9 @@ const Hero = () => {
   function color() {
     if (document.documentElement.getAttribute('data-theme') === 'dark') {
       return '#111'
-    } else {
+    } else if (
+      document.documentElement.getAttribute('data-theme') === 'light'
+    ) {
       return '#fff'
     }
   }
@@ -126,6 +129,13 @@ const Hero = () => {
           <meshPhongMaterial attach='material' map={texture} />
         </Plane>
         <Model />
+        <Trees posx={-750} posy={150} posz={0} />
+        <Trees posx={750} posy={250} posz={0} />
+        <Trees posx={-750} posy={-150} posz={0} />
+        <Trees posx={750} posy={-250} posz={0} />
+        <Trees posx={-350} posy={-350} posz={0} />
+        <Trees posx={350} posy={-450} posz={0} />
+        <Trees posx={-150} posy={-550} posz={0} />
         <SkyBox />
         <Environment preset='sunset' />
       </Canvas>
