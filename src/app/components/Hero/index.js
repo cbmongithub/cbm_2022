@@ -72,6 +72,8 @@ const Hero = () => {
       document.documentElement.getAttribute('data-theme') === 'light'
     ) {
       return '#fff'
+    } else {
+      return '#111'
     }
   }
   texture.wrapS = texture.wrapT = RepeatWrapping
