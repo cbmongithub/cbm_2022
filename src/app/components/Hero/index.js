@@ -1,22 +1,15 @@
 import { useEffect, useRef } from 'react'
 import { FaHandPointer } from 'react-icons/fa'
-import {
-  extend,
-  Canvas,
-  useLoader,
-  useThree,
-  useFrame,
-} from '@react-three/fiber'
+import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
-import { Text } from 'troika-three-text'
 import { RepeatWrapping, CubeTextureLoader } from 'three'
 import { Environment, Plane, OrbitControls } from '@react-three/drei'
 import Model from './Model'
 import Trees from './Trees'
-import { HeroData } from '../../data'
+import House from './House'
+import Sign from './Sign'
+import SignTwo from './SignTwo'
 import './style.css'
-import font from './Font'
-extend({ Text })
 
 const CameraControls = () => {
   const {
@@ -65,17 +58,7 @@ const Hero = () => {
     TextureLoader,
     '/assets/img/hero/minecraft_grass.jpg'
   )
-  function color() {
-    if (document.documentElement.getAttribute('data-theme') === 'dark') {
-      return '#000'
-    } else if (
-      document.documentElement.getAttribute('data-theme') === 'light'
-    ) {
-      return '#fff'
-    } else {
-      return '#000'
-    }
-  }
+
   function fogColor() {
     if (document.documentElement.getAttribute('data-theme') === 'dark') {
       return '#fff'
@@ -100,16 +83,6 @@ const Hero = () => {
   }
   texture.wrapS = texture.wrapT = RepeatWrapping
   texture.repeat.set(50, 50)
-  const opts = {
-    font: 'Philosopher',
-    fontSize: 120,
-    color: color(),
-    maxWidth: 1000,
-    lineHeight: 1,
-    letterSpacing: 0,
-    textAlign: 'justify',
-    materialType: 'MeshBasicMaterial',
-  }
 
   return (
     <>
@@ -118,25 +91,11 @@ const Hero = () => {
           width: '100%',
           height: '100vh',
         }}
-        camera={{ fov: 75, position: [-180, 55, 50] }}
+        camera={{ fov: 75, position: [-180, 100, 1000] }}
         shadows
         pixelRatio={window.devicePixelRatio}
       >
         <fog attach='fog' args={[fogColor(), 0, 2048]} />
-        <text
-          position-x={0}
-          position-z={-500}
-          position-y={150}
-          {...opts}
-          text={`${HeroData.title}\n${HeroData.paragraph}`}
-          font={font[opts.font]}
-          anchorX='center'
-          anchorY='middle'
-        >
-          {opts.materialType === 'MeshPhongMaterial' ? (
-            <meshPhongMaterial attach='material' color={opts.color} />
-          ) : null}
-        </text>
         <CameraControls />
         <ambientLight color={'#fff4d9'} intensity={intensityVal()} />
         <pointLight
@@ -154,12 +113,19 @@ const Hero = () => {
           <meshPhongMaterial attach='material' map={texture} />
         </Plane>
         <Model />
+        <House />
+        <Sign />
+        <SignTwo />
+        <Trees posx={-350} posy={750} posz={0} />
+        <Trees posx={450} posy={550} posz={0} />
+        <Trees posx={-650} posy={450} posz={0} />
+        <Trees posx={450} posy={-450} posz={0} />
         <Trees posx={-750} posy={150} posz={0} />
         <Trees posx={750} posy={250} posz={0} />
         <Trees posx={-750} posy={-150} posz={0} />
         <Trees posx={750} posy={-250} posz={0} />
         <Trees posx={-350} posy={-350} posz={0} />
-        <Trees posx={350} posy={-450} posz={0} />
+        <Trees posx={150} posy={-850} posz={0} />
         <Trees posx={-150} posy={-550} posz={0} />
         <SkyBox />
         <Environment preset='sunset' />
