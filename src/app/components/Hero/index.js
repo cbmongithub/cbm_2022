@@ -67,13 +67,35 @@ const Hero = () => {
   )
   function color() {
     if (document.documentElement.getAttribute('data-theme') === 'dark') {
-      return '#111'
+      return '#000'
     } else if (
       document.documentElement.getAttribute('data-theme') === 'light'
     ) {
       return '#fff'
     } else {
-      return '#111'
+      return '#000'
+    }
+  }
+  function fogColor() {
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
+      return '#fff'
+    } else if (
+      document.documentElement.getAttribute('data-theme') === 'light'
+    ) {
+      return '#000'
+    } else {
+      return '#fff'
+    }
+  }
+  function intensityVal() {
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
+      return 0.4
+    } else if (
+      document.documentElement.getAttribute('data-theme') === 'light'
+    ) {
+      return 0.07
+    } else {
+      return 0.4
     }
   }
   texture.wrapS = texture.wrapT = RepeatWrapping
@@ -86,7 +108,7 @@ const Hero = () => {
     lineHeight: 1,
     letterSpacing: 0,
     textAlign: 'justify',
-    materialType: 'MeshPhongMaterial',
+    materialType: 'MeshBasicMaterial',
   }
 
   return (
@@ -100,9 +122,10 @@ const Hero = () => {
         shadows
         pixelRatio={window.devicePixelRatio}
       >
+        <fog attach='fog' args={[fogColor(), 0, 2048]} />
         <text
           position-x={0}
-          position-z={-700}
+          position-z={-500}
           position-y={150}
           {...opts}
           text={`${HeroData.title}\n${HeroData.paragraph}`}
@@ -115,11 +138,11 @@ const Hero = () => {
           ) : null}
         </text>
         <CameraControls />
-        <ambientLight color={'#fff4d9'} intensity={0.4} />
+        <ambientLight color={'#fff4d9'} intensity={intensityVal()} />
         <pointLight
-          position={[180, 75, 75]}
+          position={[0, 75, 75]}
           color={'#fff4d9'}
-          intensity={0.13}
+          intensity={0.01}
           castShadow
         />
         <Plane
