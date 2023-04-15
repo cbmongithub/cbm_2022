@@ -93,7 +93,7 @@ const Hero = () => {
     } else if (
       document.documentElement.getAttribute('data-theme') === 'light'
     ) {
-      return 0.07
+      return 0.2
     } else {
       return 0.4
     }
