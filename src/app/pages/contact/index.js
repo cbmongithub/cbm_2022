@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
+import { motion } from 'framer-motion'
 import * as emailjs from 'emailjs-com'
 import { MetaData, ContactConfig } from '../../data'
 import { Container, Row, Col, Alert } from 'react-bootstrap'
@@ -77,9 +78,15 @@ const Contact = () => {
         <Container>
           <Row className='mt-5'>
             <Col lg='8' className='mt-4'>
-              <h1 className='display-4 mb-4'>{MetaData.contact_title}</h1>
-              <hr className='t_border mb-4 text-left' />
-              <p>{MetaData.contact_p}</p>
+              <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <h1 className='display-4 mb-4'>{MetaData.contact_title}</h1>
+                <hr className='t_border mb-4 text-left' />
+                <p>{MetaData.contact_p}</p>
+              </motion.div>
             </Col>
           </Row>
           <Row>
@@ -95,57 +102,63 @@ const Contact = () => {
                 <p className='my-0'>{formData.alertmessage}</p>
               </Alert>
             </Col>
-            <Col lg='12' className='d-flex align-items-center'>
-              <form onSubmit={handleSubmit} className='contact__form w-100'>
-                <Row>
-                  <Col lg='6' className='form-group'>
-                    <input
-                      className='form-control'
-                      id='name'
-                      name='name'
-                      placeholder='Name'
-                      value={formData.name || ''}
-                      type='text'
-                      required
-                      onChange={handleChange}
-                      autoComplete='off'
-                    />
-                  </Col>
-                  <Col lg='6' className='form-group'>
-                    <input
-                      className='form-control rounded-0'
-                      id='email'
-                      name='email'
-                      placeholder='Email'
-                      type='email'
-                      value={formData.email || ''}
-                      required
-                      autoComplete='off'
-                      onChange={handleChange}
-                    />
-                  </Col>
-                </Row>
-                <textarea
-                  className='form-control rounded-0'
-                  id='message'
-                  name='message'
-                  placeholder='Write message...'
-                  rows='5'
-                  value={formData.message}
-                  autoComplete='off'
-                  onChange={handleChange}
-                  required
-                ></textarea>
-                <br />
-                <Row>
-                  <Col lg='12' className='form-group'>
-                    <button className='btn__submit' type='submit'>
-                      {formData.loading ? 'Sending...' : 'Send'}
-                    </button>
-                  </Col>
-                </Row>
-              </form>
-            </Col>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <Col lg='12' className='d-flex align-items-center'>
+                <form onSubmit={handleSubmit} className='contact__form w-100'>
+                  <Row>
+                    <Col lg='6' className='form-group'>
+                      <input
+                        className='form-control'
+                        id='name'
+                        name='name'
+                        placeholder='Name'
+                        value={formData.name || ''}
+                        type='text'
+                        required
+                        onChange={handleChange}
+                        autoComplete='off'
+                      />
+                    </Col>
+                    <Col lg='6' className='form-group'>
+                      <input
+                        className='form-control rounded-0'
+                        id='email'
+                        name='email'
+                        placeholder='Email'
+                        type='email'
+                        value={formData.email || ''}
+                        required
+                        autoComplete='off'
+                        onChange={handleChange}
+                      />
+                    </Col>
+                  </Row>
+                  <textarea
+                    className='form-control rounded-0'
+                    id='message'
+                    name='message'
+                    placeholder='Write message...'
+                    rows='5'
+                    value={formData.message}
+                    autoComplete='off'
+                    onChange={handleChange}
+                    required
+                  ></textarea>
+                  <br />
+                  <Row>
+                    <Col lg='12' className='form-group'>
+                      <button className='btn__submit' type='submit'>
+                        {formData.loading ? 'Sending...' : 'Send'}
+                      </button>
+                    </Col>
+                  </Row>
+                </form>
+              </Col>
+            </motion.div>
           </Row>
         </Container>
         <div className={formData.loading ? 'loading-bar' : 'd-none'}></div>

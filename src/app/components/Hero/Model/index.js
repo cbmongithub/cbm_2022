@@ -1,4 +1,4 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import { useLoader, useFrame } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { AnimationMixer, FrontSide } from 'three'
@@ -6,19 +6,22 @@ import { AnimationMixer, FrontSide } from 'three'
 const Model = () => {
   const model = useLoader(GLTFLoader, '/assets/img/hero/models/horseback.gltf')
   const mixer = new AnimationMixer(model.scene)
-  const animationList = model.animations.map((animation) => animation.name)
-  const [count, setCount] = useState(0)
-  const anim = animationList[count]
+  //const animationList = model.animations.map((animation) => animation.name)
+  //const [count, setCount] = useState(0)
+  //const anim = animationList[count]
 
-  const handleAnimation = () => {
-    count >= 10 ? setCount(0) : setCount(count + 1)
-  }
+  //const handleAnimation = () => {
+  //  count >= 10 ? setCount(0) : setCount(count + 1)
+  //}
 
   model.animations.forEach((clip) => {
     const action = mixer.clipAction(clip)
-    if (clip.name === anim.toString()) {
+    if (clip.name === 'Idle 01') {
       action.play()
     }
+    //if (clip.name === anim.toString()) {
+    //  action.play()
+    //}
   })
 
   useFrame((state, delta) => {
@@ -36,7 +39,7 @@ const Model = () => {
   return (
     <primitive
       object={model.scene}
-      onClick={() => handleAnimation()}
+      //onClick={() => handleAnimation()}
       position={[0, 0, 0]}
       scale={1}
     />

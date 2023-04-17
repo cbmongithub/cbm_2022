@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { FaHandPointer } from 'react-icons/fa'
 import { Canvas, useLoader, useThree, useFrame } from '@react-three/fiber'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { RepeatWrapping, CubeTextureLoader } from 'three'
@@ -9,7 +8,6 @@ import Trees from './Trees'
 import House from './House'
 import Sign from './Sign'
 import SignTwo from './SignTwo'
-import './style.css'
 
 const CameraControls = () => {
   const {
@@ -91,7 +89,7 @@ const Hero = () => {
           width: '100%',
           height: '100vh',
         }}
-        camera={{ fov: 75, position: [-180, 100, 1000] }}
+        camera={{ fov: 75, position: [-180, 200, 1000] }}
         shadows
         pixelRatio={window.devicePixelRatio}
       >
@@ -130,12 +128,6 @@ const Hero = () => {
         <SkyBox />
         <Environment preset='sunset' />
       </Canvas>
-      <div className='btn_container'>
-        <div className='bg_click'></div>
-        <div className='click'>
-          <FaHandPointer />
-        </div>
-      </div>
     </>
   )
 }

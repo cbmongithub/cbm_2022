@@ -32,12 +32,14 @@
   color: var(--text-color);
   border: 1px solid var(--gray-color);
   border-bottom: 0px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .modal__body {
   background-color: var(--bg-color);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   color: var(--text-color);
   border: 1px solid var(--gray-color);
 }

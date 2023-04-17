@@ -4,17 +4,17 @@
   --gray-color: #555;
   --gray-muted: #eee;
   --gray-scale: 0;
-  --secondary-color: #111;
-  --text-color: #111;
-  --text-color-2: #111;
+  --secondary-color: #222;
+  --text-color: #222;
+  --text-color-2: #222;
   --overlay-color: rgb(255 255 255 / 70%);
 }
 
 [data-theme='light'] {
-  --bg-color: #111;
-  --primary-color: #111;
+  --bg-color: #222;
+  --primary-color: #222;
   --gray-color: #e9e9e9;
-  --gray-muted: #222;
+  --gray-muted: #333;
   --gray-scale: 1;
   --secondary-color: #fff;
   --text-color: #f9f9f9;
