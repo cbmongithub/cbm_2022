@@ -1,7 +1,11 @@
-# What's this?
+# cbm_2022
 
-My 2022 [website](https://www.christianbmartinez.com/)
+My current portfolio [website](https://www.christianbmartinez.com/)
 
 # Built with
 
-REACT, BS5, REACT-BOOTSTRAP, REACT-THREE-FIBER, CSS
+REACT, BS5, REACT-BOOTSTRAP, REACT-THREE-FIBER, CSS, REACT-HELMET, FRAMER-MOTION, EMAILJS
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
